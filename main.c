@@ -9,5 +9,11 @@
 
 int main(int argc, char *argv[]) {
 	
+	int user[N][N];
+	int com[N][N];
+	
+	initiate_bingo(user, com);
+	print_bingo(user, com);
+	
 	return 0;
 }
