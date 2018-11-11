@@ -15,11 +15,16 @@ int main(int argc, char *argv[]) {
 	int com[N][N];
 	int num_Me;
 	int num_Com;
+	int result;
 	
 	initiate_bingo(user, com);
+	
 	print_bingo(user, com);
-	get_number_byMe(num_Me);
-	get_number_byCom(num_Com);
+	process_bingo(num_Me, num_Com);
+
+	
+
+	
 	
 	return 0;
 }
