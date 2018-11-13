@@ -6,13 +6,16 @@
 // 내가 빙고 번호를 입력 및 선택하는 함수
 void get_number_byMe(int num_Me[])
 {
+	int max = N*N;
+	 
 	do {
 		printf("\n ## 번호를 입력하세요 : ");
 		scanf("%d", &num_Me);
 	
-		if ((num_Me < 1) || (num_Me > N*N))
+		if ((num_Me < 1) || (num_Me > max))
 			printf("\n ## 잘못 입력하셨습니다!\n"); 
-	} while ((num_Me < 1) || (num_Me > N*N));
+			
+	} while ((num_Me < 1) || (num_Me > max));
 	
 }	
 

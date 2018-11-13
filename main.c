@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 	
 	initiate_bingo(user, com);
 	
-	print_bingo(user, com);
+	print_bingo(user);
 	process_bingo(num_Me, num_Com);
 
 	
