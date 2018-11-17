@@ -13,18 +13,15 @@ int main(int argc, char *argv[]) {
 	
 	int user[N][N];
 	int com[N][N];
+	int save_user[N*N];
+	int save_com[N*N];
 	int num_Me;
 	int num_Com;
-	int result;
-	
-	initiate_bingo(user, com);
-	
-	print_bingo(user);
-	process_bingo(num_Me, num_Com);
 
-	
-
-	
+	initiate_bingo(user, com, save_user, save_com);
+	print_bingo(user, com);
+	process_bingo(&num_Me, &num_Com);
+	count_bingo(user, com);
 	
 	return 0;
 }
