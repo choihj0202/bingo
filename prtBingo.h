@@ -1,5 +1,5 @@
 #define N 5
  
-void initiate_bingo(int user[N][N], int com[N][N], int save_user[N*N], int save_com[N*N]);
-void print_bingo(int user[N][N], int com[N][N]);
-int repeat_number(int num[N][N], int temp);
+void initiate_bingo(int bingo[N][N]);
+void print_bingo(int bingo2[N][N]);
+int repeat_number(int bingo3[N][N], int temp);
