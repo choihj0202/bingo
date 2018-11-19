@@ -11,17 +11,12 @@
 
 int main(int argc, char *argv[]) {
 	
-	/*int user[N][N];
-	int com[N][N];
-	int check[N*N];
-	int num_Me;
-	int num_Com;
-	int turn = 0;
-	int finish;*/
 	printf("\n ##### B I N G O #####\n"); 
+	printf(" ## 먼저 빙고 %d 개를 완성하면 승리!\n", M); 
 	
 	int user_bingo[N][N];
 	int com_bingo[N][N];
+	int turn = 0;
 
 	srand((unsigned) time(NULL));
 	
@@ -30,6 +25,33 @@ int main(int argc, char *argv[]) {
 	
 	print_bingo(user_bingo);
 	print_bingo(com_bingo);
+	
+	do 
+	{
+		get_number_byMe(user_bingo);
+		print_bingo(user_bingo);
+		turn++;
+		
+		get_number_byCom(com_bingo);
+		print_bingo(com_bingo);
+		turn++;
+		
+		break;
+		
+	} while (1);
+	
+	// user가 우승조건 M을 먼저 만족시키면 user 승 
+	if ((count_bingo(user_bingo) == M) && (count_bingo(user_bingo) > count_bingo(com_bingo)))	 
+		printf(" ## USER가 이겼습니다! \n\n");
+	
+	// computer가 우승조건 M을 먼저 만족시키면 computer 승
+	else if ((count_bingo(com_bingo) == M) && (count_bingo(com_bingo) > count_bingo(user_bingo)))
+		printf(" ## COMPUTER가 이겼습니다! \n\n");
+	
+	// user와 computer가 동시에 우승조건 M을 만족시키면 무승부
+	else if ((count_bingo(user_bingo) == M) && (count_bingo(com_bingo) == M))	  
+		printf(" ## 비겼습니다! \n\n");
+
 	
 /*	do {
 	get_number_byMe(save_user, check);
