@@ -12,8 +12,9 @@ int get_number_byMe(int bingo4[N][N])
 	 
 	while (1) 
 	{
-		printf("\n ## 번호를 입력하세요 : ");	// user가 번호 입력  
+		printf("## 번호를 입력하세요 : ");	// user가 번호 입력  
 		scanf("%d", &num_Me);
+		printf("\n");
 		
 		if ((num_Me > 0) && (num_Me < max+1))
 		{
@@ -27,13 +28,11 @@ int get_number_byMe(int bingo4[N][N])
 			}
 		}	 
 		
-		break;	// break 위치 다시  
-		
 		else if ((num_Me < 0) && (num_Me > max))	// 범위 밖의 번호를 입력했을 때  
-			printf("\n ## 1 ~ %d 의 번호만 입력할 수 있습니다.\n", max);
+			printf(" ## 1 ~ %d 의 번호만 입력할 수 있습니다.\n", max);
 			
 		else 
-			printf("\n ## 이미 입력한 번호입니다.\n");
+			printf(" ## 이미 입력한 번호입니다.\n\n");
 	}
 }
 

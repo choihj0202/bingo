@@ -4,15 +4,14 @@
 #define N 5
 
 // 초기 빙고 테이블을 만드는 함수
-void initiate_bingo(int bingo[N*N])	// save에 빙고 테이블의 각 숫자를 저장 		  
+void initiate_bingo(int bingo[N][N])	// save에 빙고 테이블의 각 숫자를 저장 		  
 {  
 	int i, j;
 	int temp;	// 배열의 정렬에 임시로 사용되는 변수 선언  
 	int max = N*N;	// 난수의 최댓값 설정에 필요한 변수 선언  
 
 	srand((unsigned) time(NULL)); 
-	
-	// 초기 USER 빙고 형성  
+	  
 	for (i=0; i<N; i++)
 	{
 		for (j=0; j<N; j++)
@@ -23,9 +22,7 @@ void initiate_bingo(int bingo[N*N])	// save에 빙고 테이블의 각 숫자를 저장
 				j--;
 				
 			else
-			{
 				bingo[i][j] = temp;	// 중복되지 않을 경우 그대로 값 저장  
-			}
 		}
 	}
 	

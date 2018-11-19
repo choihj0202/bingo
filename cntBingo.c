@@ -50,7 +50,7 @@ int count_bingo(int bingo5[N][N])
 	
 	count = garo + sero + daegak;	// ºù°í Å×ÀÌºíÀÇ ÃÑ ºù°í ¼ö¸¦ °è»ê  
 	
-	printf("\n ## °¡·Î ºù°í %d °³, ¼¼·Î ºù°í %d °³, ´ë°¢¼± ºù°í %d °³ ¿Ï¼º! (ÃÑ %d °³)\n ", garo, sero, deagak, count);
+	printf(" ## °¡·Î ºù°í %d °³, ¼¼·Î ºù°í %d °³, ´ë°¢¼± ºù°í %d °³ ¿Ï¼º (ÃÑ %d °³)\n ", garo, sero, daegak, count);
 
 	return count;
 }
