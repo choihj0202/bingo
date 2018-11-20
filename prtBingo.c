@@ -7,7 +7,7 @@
 void initiate_bingo(int bingo[N][N])	// save에 빙고 테이블의 각 숫자를 저장 		  
 {  
 	int i, j;
-	int temp;	// 배열의 정렬에 임시로 사용되는 변수 선언  
+	int temp;	// 중간에 임시로 사용되는 변수 선언  
 	int max = N*N;	// 난수의 최댓값 설정에 필요한 변수 선언  
 	  
 	for (i=0; i<N; i++)
