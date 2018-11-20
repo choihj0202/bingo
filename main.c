@@ -19,6 +19,8 @@ int main(int argc, char *argv[]) {
 	int num_Me;
 	int num_Com;
 	int turn = 1;
+	int count;
+	int finish;
 
 	srand((unsigned) time(NULL));
 	
@@ -28,42 +30,48 @@ int main(int argc, char *argv[]) {
 	print_bingo(user_bingo);
 	print_bingo(com_bingo);
 	
-	printf(" ## 현재 %d 턴\n\n ", turn); 
+	printf(" # 현재 %d 턴\n\n ", turn); 
 	
 	do 
 	{
-		get_number_byMe(user_bingo);
+		// user의 빙고 테이블에 대한 코드  
+		num_Me = get_number_byMe(user_bingo);
 		process_bingo(user_bingo, num_Me);
 		process_bingo(com_bingo, num_Me);
 		print_bingo(user_bingo);
 		print_bingo(com_bingo);
 		turn++;
-		printf("\n ## 현재 %d 턴\n", turn);
+		count = count_bingo(user_bingo);
+		printf(" ## %d 빙고 완성!\n ", count);
+		finish = win_bingo(user_bingo, com_bingo);
 		
-		get_number_byCom(com_bingo);
+		
+		if (finish == 0)
+			break;
+		
+		printf("\n # 현재 %d 턴\n", turn);
+		
+		// computer의 빙고 테이블에 대한 코드  
+		num_Com = get_number_byCom(com_bingo, num_Me);
 		process_bingo(user_bingo, num_Com);
 		process_bingo(com_bingo, num_Com);
 		print_bingo(user_bingo);
 		print_bingo(com_bingo);
 		turn++;
+		count = count_bingo(com_bingo);
+		printf(" ## %d 빙고 완성!\n ", count);
+		finish = win_bingo(user_bingo, com_bingo);
 		
-		count_bingo(user_bingo);
-		count_bingo(com_bingo);
+		if (finish == 0)
+			break;
+			
+		printf("\n # 현재 %d 턴\n", turn);
+		
 		printf("\n");
 
-	} while (1);
+	} while (finish);
 	
-	// user가 우승조건 M을 먼저 만족시키면 user 승 
-	if ((count_bingo(user_bingo) == M) && (count_bingo(user_bingo) > count_bingo(com_bingo)))	 
-		printf(" ## USER가 이겼습니다! \n\n");
-	
-	// computer가 우승조건 M을 먼저 만족시키면 computer 승
-	else if ((count_bingo(com_bingo) == M) && (count_bingo(com_bingo) > count_bingo(user_bingo)))
-		printf(" ## COMPUTER가 이겼습니다! \n\n");
-	
-	// user와 computer가 동시에 우승조건 M을 만족시키면 무승부
-	else if ((count_bingo(user_bingo) == M) && (count_bingo(com_bingo) == M))	  
-		printf(" ## 비겼습니다! \n\n");
-	
+	printf("\n ### 총 %d 턴\n", turn-1, count);
+
 	return 0;
 }

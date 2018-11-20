@@ -9,8 +9,6 @@ void initiate_bingo(int bingo[N][N])	// save에 빙고 테이블의 각 숫자를 저장
 	int i, j;
 	int temp;	// 배열의 정렬에 임시로 사용되는 변수 선언  
 	int max = N*N;	// 난수의 최댓값 설정에 필요한 변수 선언  
-
-	srand((unsigned) time(NULL)); 
 	  
 	for (i=0; i<N; i++)
 	{
@@ -38,7 +36,7 @@ void print_bingo(int bingo2[N][N])
 	{
 		for (j=0; j<N; j++)
 		{
-			printf(" %2d ", bingo2[i][j]);	// 숫자를 보기 좋게 정렬하기 위해 모두 두 자리 수로 설정  
+			printf(" %3d ", bingo2[i][j]);	// 숫자를 보기 좋게 정렬하기 위해 모두 세 자리 수로 설정  
 		}
 		printf("\n");
 	}

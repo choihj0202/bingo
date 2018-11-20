@@ -28,37 +28,44 @@ int get_number_byMe(int bingo4[N][N])
 			}
 		}	 
 		
-		else if ((num_Me < 0) && (num_Me > max))	// 범위 밖의 번호를 입력했을 때  
-			printf(" ## 1 ~ %d 의 번호만 입력할 수 있습니다.\n", max);
+		else if ((num_Me < 0) || (num_Me > max))	// 범위 밖의 번호를 입력했을 때  
+			printf(" ** 1 ~ %d 의 번호만 입력할 수 있습니다.\n\n", max);
 			
 		else 
-			printf(" ## 이미 입력한 번호입니다.\n\n");
+			printf(" ** 이미 입력한 번호입니다.\n\n");
 	}
 }
 
 // 컴퓨터가 임의로 빙고 번호를 선택하는 함수
-int get_number_byCom(int bingo5[N][N])
+int get_number_byCom(int bingo5[N][N], int num)
 {
 	int i, j;
 	int num_Com;
-/*	int same_num;*/
 	int max = N*N;
 	
 	while (1) 
 	{	
-		/*same_num = 0;*/
 		num_Com = 1+rand()%max;
 	
 		for (i=0; i<max; i++)
 		{
-			if (bingo5[i][j] == num_Com)
-				return num_Com;
+			for (j=0; j<max; j++)
+			{
+				if (num == num_Com)	// user가 이미 입력한 번호를 입력하면 break 
+					break;
+					
+				else if (bingo5[i][j] == -1)	// 이미 빙고 테이블에 -1이 적혀있으면, 중복된 번호를 입력했으면 break 
+					break;
+				
+				else if (bingo5[i][j] == num_Com)
+				{
+					printf("\n ## 컴퓨터는 %d 을(를) 선택했습니다.\n\n", num_Com);
+					return num_Com;
+				}
+			}
 		}	
-		/* if (same_num)
-			break;*/
 	}	
-	printf("\n ## 컴퓨터는 %d 을(를) 선택했습니다.\n", num_Com);
-
+	
 	return 0;
 }
 
@@ -73,7 +80,7 @@ int process_bingo(int bingo6[N][N], int num)
 		for (j=0; j<N; j++)
 		{
 			if (bingo6[i][j] == num)
-				bingo6[i][j] = -1;		
+				bingo6[i][j] = -1;
 		}
 	}	
 	return bingo6[i][j];
