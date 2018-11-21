@@ -26,7 +26,6 @@ int get_number_byMe(int bingo4[N][N])
 					{
 						return num_Me;
 					}
-						
 				}
 			}
 			

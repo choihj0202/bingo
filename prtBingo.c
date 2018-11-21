@@ -36,7 +36,7 @@ void print_bingo(int bingo2[N][N])
 	{
 		for (j=0; j<N; j++)
 		{
-			printf(" %3d ", bingo2[i][j]);	// 숫자를 보기 좋게 정렬하기 위해 모두 세 자리 수로 설정  
+			printf(" %4d ", bingo2[i][j]);	// 숫자를 보기 좋게 정렬하기 위해 모두 세 자리 수로 설정  
 		}
 		printf("\n");
 	}

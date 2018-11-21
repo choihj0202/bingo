@@ -2,7 +2,7 @@
 #include <time.h>
 
 #define N 5
-#define M 2
+#define M 4
 
 // 빙고 테이블이 채운 가로/세로/대각선 줄 수를 계산해서 반환하는 함수
 int count_bingo(int bingo7[N][N])
